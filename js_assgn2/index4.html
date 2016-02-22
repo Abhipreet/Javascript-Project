@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta charset="utf-8">
+
+<style>
+body {
+  font: 10px sans-serif;
+  background-color:   #ffe6b3;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+  <center><h2>Oilseed crop type vs Production</h2></center>
+<button>  <h3><a href="index.html">BACK</a></h3></button>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+var margin={top:20,right:10,bottom:280,left:75}
+
+var w = 1200-margin.right-margin.left;
+var h = 700-margin.top-margin.bottom;
+var xScale = d3.scale.ordinal()
+.rangeRoundBands([0, w], 0.2,.10);
+
+var yScale = d3.scale.linear()
+.range([h, 0]);
+
+
+
+var xaxis=d3.svg.axis()
+.scale(xScale)
+.orient("bottom");
+
+var yaxis=d3.svg.axis()
+.scale(yScale)
+.orient("left");
+
+
+d3.json("config1.json",function(json){
+	var data=json;
+	var svg = d3.select(".graph_div")
+	.append("svg")
+	.attr("width", w + margin.right+ margin.left)
+	.attr("height", h + margin.top+ margin.bottom)
+	.append("g")
+	.attr("transform","translate("+margin.left+','+margin.right+")");
+
+	var colorscale = d3.scale.linear()
+	.domain([0,d3.max(data, function(d) {return d.value;})])
+	.range(["red","green","lightblue"]);
+
+	data.sort(function (a, b) {
+		return b.value - a.value;
+	});
+
+	xScale.domain(data.map(function(d){return d.x;}));
+	yScale.domain([0, d3.max(data, function(d) {return d.value*1.1;})]);
+
+
+	svg.selectAll("rect")
+	.data(data)
+	.enter()
+	.append("rect")
+	.attr("height",0)
+	.attr("y",h)
+	.transition().duration(1000)
+	.delay(function(d,i){return i*20;})
+	.attr("x", function(d, i) {
+		return xScale(d.x);
+	})
+	.attr("y", function(d) {
+		return yScale(d.value);
+	})
+	.attr("width", xScale.rangeBand())
+	.attr("height", function(d) {
+		return h-yScale(d.value);
+	})
+	.attr("fill", "steelblue")
+	.style("backgroung","1px dotted black");
+
+	svg.append("g")
+	.attr("class","x axis")
+	.attr("transform","translate(0,"+ h +")")
+	.call(xaxis)
+	.selectAll("text")
+	.attr("transform","rotate(-60)")
+	.attr("dx","-.8em")
+	.attr("dy",".25em")
+	.style("text-anchor","end")
+
+	svg.append("g")
+	.attr("class","y axis")
+	.call(yaxis)
+	.append("text")
+	.attr("transform", "rotate(-90)")
+	.attr("dx","-6em")
+	.attr("dy", "-4em")
+	.style("text-anchor", "end")
+	.text("Value");
+});
+
+</script>
+
+<div class="graph_div"></div>
+</body>
+</html>

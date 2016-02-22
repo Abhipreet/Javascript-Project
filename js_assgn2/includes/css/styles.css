@@ -1,0 +1,185 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Brad Hussey
+Updated: August 2013
+Notes:	 Hand coded for Udemy.com
+
+*/
+footer {
+	background: #333;
+	color: #eee;
+	font-size: 11px;
+	padding: 20px;
+}
+.mod{
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.myimg{
+  width:260px;
+  height:300px;
+
+}
+
+#logo
+{
+  width:100px;
+  height:50px;
+}
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+#features{
+  text-align: center;
+}
+#features img{
+  margin: 0 0 20px;
+}
+.tab-content{
+  margin-top: 15px;
+}
+.tab-content img{
+  height:200px;
+  width:250px;
+}
+.myfont{
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+
+/* --------------------------------------
+   Typography
+   -------------------------------------- */
+   body {
+   	-webkit-font-smoothing: antialiased;
+   	text-rendering: optimizelegibility;
+   }
+
+   .well .page-header {
+   	margin-top: 0;
+   }
+
+   .well .page-header h1 {
+   	margin-top:0;
+   }
+
+   ul.unstyled {
+   	list-style: none;
+   	padding: 0;
+   }
+
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+   #searchInput{
+     width:200px;
+   }
+.navbar-brand{
+  padding: 13px 15px;
+}
+
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+#pic1{
+  width:1200px;
+  height:550px;
+  margin-bottom: 20px;
+}
+#myCarousel .item{
+  height:500px;
+}
+.carousel-caption{
+  font-size: 24px;
+}
+.carousel-caption h3{
+  font-size: 40px;
+}
+
+#slide1{
+  background-image: url('../../image/book.jpg');
+}
+#slide2{
+  background-image: url("../../image/book1.jpg");
+}
+#slide3{
+  background-image: url("../../image/book2.jpg");
+}
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+   .alert {
+   	margin-top: 20px;
+   	display: none;
+   }
+
+   .well {
+   	margin: 20px 0;
+   }
+
+   .tabbable img.thumbnail {
+   	margin: 0 20px 10px 0;
+   }
+
+   .thumbnails {
+   	margin: 20px 0;
+   }
+
+   .thumbnail {
+   	position: relative;
+   }
+
+   .thumbnail h3 {
+   	font-size: 16px;
+   	margin: 0 0 10px;
+   	line-height: 20px;
+   }
+
+   .thumbnail .price {
+   	font-size: 22px;
+   	position: absolute;
+   	top: -10px;
+   	right: -10px;
+   	padding: 10px;
+   }
+
+   .thumbnail .price sup {
+   	font-weight: normal;
+   	font-size: 12px;
+   }
+
+   .thumbnail span.glyphicon {
+   	margin-right: 5px;
+   }
+
+/*----------------------------------------------------*/
+
+
+
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
